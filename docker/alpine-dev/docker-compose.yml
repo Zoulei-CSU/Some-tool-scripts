@@ -1,0 +1,26 @@
+version: "3.4"
+
+x-defaults: &default
+  restart: unless-stopped
+  build: .
+  volumes:
+    - ..:/home/southgis/projects/
+
+services:
+  alpine318-dev:
+    <<: *default
+    container_name: alpine318-dev
+    hostname: "Alpine318"
+    user: root
+    working_dir: /home/southgis/projects
+    security_opt:
+      - seccomp:unconfined
+    cap_add:
+      - SYS_PTRACE
+    ports: 
+      - "8023:22"
+
+#docker-compose up -d
+#docker-compose up --build -d
+
+
