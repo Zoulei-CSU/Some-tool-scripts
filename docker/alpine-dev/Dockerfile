@@ -11,6 +11,7 @@ RUN apk add --no-cache openssh sudo
 RUN apk add --no-cache htop xz build-base cmake \
 	qt5-qtbase-dev qt5-qtbase-sqlite qt5-qtbase-postgresql \
 	libpq-dev curl-dev proj-dev geos-dev gdal-dev openscenegraph-dev
+RUN apk add --no-cache go
 
 RUN echo 'PasswordAuthentication yes' >> /etc/ssh/sshd_config
 RUN adduser -u 502 -G wheel -h /home/southgis -s /bin/sh -D southgis
